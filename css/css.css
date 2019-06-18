@@ -1,6 +1,6 @@
 @font-face {
   font-family: rockwell;
-  src: url(fonts/rockwell/rock.ttf);
+  src: url(../fonts/rockwell/rock.ttf);
 }
 
 body {
@@ -50,6 +50,27 @@ body {
     font-size: 30px;
 }
 
+/*----- home -----*/
+.homeContainer {
+  display: grid;
+  grid-template-columns: 4fr 1fr 7fr;
+  grid-row-gap: 100px;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 3%;
+}
+
+.homeText {
+	grid-column: 1/2;
+	font-size: 30px;
+	align-self: center;
+	line-height: 60px
+}
+
+.homeImage {
+	grid-column: 3/4;
+	justify-self: center;
+}
 
 /* ----- footer -----*/
 .footerContainer {
@@ -58,6 +79,7 @@ body {
   grid-row-gap: 10px;
   margin-left: 10%;
   margin-right: 10%;
+  margin-top: 100px;
 }
 
 .footerContainer a {
