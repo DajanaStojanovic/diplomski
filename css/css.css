@@ -1,0 +1,59 @@
+@font-face {
+  font-family: rockwell;
+  src: url(fonts/rockwell/rock.ttf);
+}
+
+body {
+	font-family: rockwell;
+	margin: 0;
+}
+
+/* ----- header -----*/
+.headerHome {
+	background-image: url("../images/backgroundHeader.png");
+	width: 100%;
+	height: auto;
+	padding-bottom: 8%;
+}
+
+.headerLogo{
+    width: 20%;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+
+
+
+
+
+
+
+/* ----- footer -----*/
+.footerContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-row-gap: 10px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.footerContainer a {
+	color: #000;
+	text-decoration: none;
+	font-size: 20px;
+}
+
+.impressumFooter {
+	justify-self: center;
+}
+
+.kontaktFooter {
+	justify-self: end;
+}
+
+.footerText {
+	grid-column: 1/4;
+	text-align: center;
+	font-size: 16px;
+}

@@ -1,4 +1,5 @@
 <html>
+<link rel="stylesheet" type="text/css" href="css/css.css">
 <head>
     <title>Ultra HC - diplomski </title>
 </head>

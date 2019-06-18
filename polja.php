@@ -1,6 +1,6 @@
 <?php
 include 'konfiguracija.php';
-
+include 'header.php';
 // Check connection
 if ($veza === false) {
     die("ERROR: Could not connect. " . mysqli_connect_error());
@@ -15,7 +15,7 @@ $pravila->execute();
 $rezultatiPravila = $pravila->fetchAll(PDO::FETCH_OBJ);
 
 ?>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
 <script>
     function dragstart_handler(ev) {
         ev.dataTransfer.setData("text/plain", ev.target.id);
@@ -47,13 +47,6 @@ $rezultatiPravila = $pravila->fetchAll(PDO::FETCH_OBJ);
         });
     }
 </script>
-
-<html>
-<head>
-    <title>Ultra HC - diplomski </title>
-</head>
-
-<body>
 <div style="width: 33.3%; padding-top: 33.3%; background-color: #808000; position: relative;" class="ploca">
     <?php foreach ($rezultati as $r): ?>
         <div style="font-size: 100%; text-align: center; color: #fff; background-color: <?php echo $r->boja_pozadine ?> ; height: <?php echo $r->visina ?>%; width: <?php echo $r->sirina ?>%; top: <?php echo $r->x_kordinata ?>%; left: <?php echo $r->y_kordinata ?>%; position:absolute; transform: rotate(<?php echo $r->kut ?>deg);"
@@ -73,5 +66,4 @@ $rezultatiPravila = $pravila->fetchAll(PDO::FETCH_OBJ);
     <?php endforeach; ?>
 </div>
 <button type="button" name="kreirajPDF" onclick="generatePdf()">Kreiraj PDF</button>
-</body>
-</html>
+<?php include 'footer.php'?>
