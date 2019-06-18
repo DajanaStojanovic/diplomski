@@ -13,7 +13,7 @@ body {
 	background-image: url("../images/backgroundHeader.png");
 	width: 100%;
 	height: auto;
-	padding-bottom: 8%;
+	padding-bottom: 6%;
 }
 
 .headerLogo{
@@ -22,11 +22,33 @@ body {
     margin-top: 5%;
 }
 
+.headerDices{
+	width: 18%;
+    margin-left: 38%;
+    position: absolute;
+}
 
+.headerBoard {
+	position: absolute;
+    width: 63%;
+    right: 0;
+}
 
+.kreirajText {
+	margin-left: 10%;
+    font-size: 30px;
+    margin-top: 12%;
+    margin-bottom: 3%;
+}
 
-
-
+.buttonKreiraj {
+	text-decoration: none;
+    color: #fff;
+    background-color: #4EEE94;
+    margin-left: 10%;
+    padding: 25px 60px 20px;
+    font-size: 30px;
+}
 
 
 /* ----- footer -----*/
