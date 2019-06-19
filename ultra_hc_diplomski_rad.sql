@@ -46,30 +46,6 @@ INSERT INTO `figurice` (`id`, `naziv`, `opis`, `slika`) VALUES
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `fotografija`
---
-
-CREATE TABLE `fotografija` (
-  `id` int(11) NOT NULL,
-  `naziv` varchar(50) DEFAULT NULL,
-  `slika` varchar(50) DEFAULT NULL,
-  `tag` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `fotografija`
---
-
-INSERT INTO `fotografija` (`id`, `naziv`, `slika`, `tag`) VALUES
-(1, 'Prvi background', 'prvi_background.png', 'default'),
-(2, 'Drugi background', 'drugi_background.png', 'default'),
-(3, 'Treci background', 'treci_background.png', 'default'),
-(4, 'Custom background', 'custom_background.png', 'custom'),
-(5, 'Cetvrti background', 'prvi_background.png', 'default'),
-(6, 'Peti background', 'drugi_background.png', 'default'),
-(7, 'Sesti background', 'treci_background.png', 'default'),
-(8, 'Custom background', 'custom_background.png', 'custom');
 
 -- --------------------------------------------------------
 
@@ -109,7 +85,7 @@ CREATE TABLE `narudzba` (
   `narucitelj` int(11) DEFAULT NULL,
   `broj_igraca` int(11) DEFAULT NULL,
   `oblik_ploce` int(11) DEFAULT NULL,
-  `fotografija` int(11) DEFAULT NULL,
+  `boja_ploce` varchar(11) DEFAULT NULL,
   `figurice` int(11) DEFAULT NULL,
   `ploca` int(11) DEFAULT NULL,
   `dostava` varchar(50) DEFAULT NULL,
@@ -121,8 +97,8 @@ CREATE TABLE `narudzba` (
 -- Dumping data for table `narudzba`
 --
 
-INSERT INTO `narudzba` (`id`, `narucitelj`, `broj_igraca`, `oblik_ploce`, `fotografija`, `figurice`, `ploca`, `dostava`, `placanje`, `datum`) VALUES
-(1, 2, 1, 1, 1, 2, 1, 'Pošta', 'Pouzeće', NULL);
+INSERT INTO `narudzba` (`id`, `narucitelj`, `broj_igraca`, `oblik_ploce`, `boja_ploce`, `figurice`, `ploca`, `dostava`, `placanje`, `datum`) VALUES
+(1, 2, 1, 1, "#000", 2, 1, 'Pošta', 'Pouzeće', NULL);
 
 -- --------------------------------------------------------
 
@@ -334,11 +310,6 @@ ALTER TABLE `broj_igraca`
 ALTER TABLE `figurice`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `fotografija`
---
-ALTER TABLE `fotografija`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `narucitelj`
@@ -354,7 +325,6 @@ ALTER TABLE `narudzba`
   ADD KEY `narucitelj` (`narucitelj`),
   ADD KEY `broj_igraca` (`broj_igraca`),
   ADD KEY `oblik_ploce` (`oblik_ploce`),
-  ADD KEY `fotografija` (`fotografija`),
   ADD KEY `figurice` (`figurice`),
   ADD KEY `ploca` (`ploca`);
 
@@ -409,11 +379,7 @@ ALTER TABLE `broj_igraca`
 ALTER TABLE `figurice`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
---
--- AUTO_INCREMENT for table `fotografija`
---
-ALTER TABLE `fotografija`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 
 --
 -- AUTO_INCREMENT for table `narucitelj`
@@ -468,7 +434,6 @@ ALTER TABLE `narudzba`
   ADD CONSTRAINT `narudzba_ibfk_1` FOREIGN KEY (`narucitelj`) REFERENCES `narucitelj` (`id`),
   ADD CONSTRAINT `narudzba_ibfk_2` FOREIGN KEY (`broj_igraca`) REFERENCES `broj_igraca` (`id`),
   ADD CONSTRAINT `narudzba_ibfk_3` FOREIGN KEY (`oblik_ploce`) REFERENCES `oblik_ploce` (`id`),
-  ADD CONSTRAINT `narudzba_ibfk_4` FOREIGN KEY (`fotografija`) REFERENCES `fotografija` (`id`),
   ADD CONSTRAINT `narudzba_ibfk_5` FOREIGN KEY (`figurice`) REFERENCES `figurice` (`id`),
   ADD CONSTRAINT `narudzba_ibfk_6` FOREIGN KEY (`ploca`) REFERENCES `ploca` (`id`);
 

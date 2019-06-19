@@ -8,6 +8,19 @@ if ($veza === false) {
 $izraz = $veza->prepare("select * from broj_igraca");
 $izraz->execute();
 $rezultati = $izraz->fetchAll(PDO::FETCH_OBJ);
+
+
+if(isset($_POST["buttonDalje"])){
+	$izraz=$veza->prepare("insert into narudzba 
+		(broj_igraca) values 
+		(:broj_igraca)");
+        $izraz->bindParam(":broj_igraca", $_POST['brojIgraca']);
+        $izraz->execute();
+        $idZapis = $veza->lastInsertId();
+
+        header("location: odabirOblikaPloce.php?id=" . $idZapis . "&brojIgraca=" . $_POST['brojIgraca'] ."");
+
+};
 ?>
 
 <div class="headerPages">
@@ -40,16 +53,6 @@ $rezultati = $izraz->fetchAll(PDO::FETCH_OBJ);
 	</div>
 </form>
 
-<?php if(isset($_POST["buttonDalje"])){
-	$izraz=$veza->prepare("insert into narudzba 
-		(broj_igraca) values 
-		(:broj_igraca)");
-        $izraz->bindParam(":broj_igraca", $_POST['brojIgraca']);
-        $izraz->execute();
-        $idZapis = $veza->lastInsertId();
-
-        header("location: odabirOblikaPloce.php?id=" . $idZapis . "&brojIgraca=" . $_POST['brojIgraca'] ."");
-
-};
+<?php 
 
 include 'footer.php' ?>

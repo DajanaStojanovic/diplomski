@@ -19,7 +19,23 @@ $('div.selectContainer').on('click', function() {
   $(this).children('input').prop('checked', !$(this).children('input').prop('unchecked'));
   $('.buttonDalje').addClass('buttonActive');
   $('.buttonDalje').removeAttr('disabled');
-})
+});
+
+//Color Picker
+var colorPicker = new iro.ColorPicker("#color-picker-container", {
+width: 280,
+color: "#B2B2B2",
+borderWidth: 1,
+borderColor: "#fff",
+});
+
+var values = document.getElementById("values");
+colorPicker.on(["color:init", "color:change"], function(color){
+values.innerHTML = [
+"<input type='hidden' name='bojaPloce' value='" + color.hexString + "'>"
+];
+document.getElementById("boardImage").style.backgroundColor = color.hexString;
+});
 </script>
 </body>
 </html>

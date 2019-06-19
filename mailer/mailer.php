@@ -7,11 +7,11 @@ function sendMailWithPdf($path, $filename)
     $result = false;
 
     //recipient email details
-    $mailTo = 'sambolek.petar@gmail.com';
+    $mailTo = 'dajana.stojanovic994@gmail.com';
     $subject = "PDF";
 
     //from email details
-    $fromMail = 'sambolek.petar@gmail.com';
+    $fromMail = 'dajana.stojanovic994@gmail.com';
     $fromName = 'My APP';
 
     //email text

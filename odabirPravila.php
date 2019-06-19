@@ -6,7 +6,8 @@ if ($veza === false) {
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 
-$izraz = $veza->prepare("select * from polja_ploca where oblik_ploce=1");
+$izraz = $veza->prepare("select * from polja_ploca where oblik_ploce=:oblikPloce");
+$izraz -> bindParam(":oblikPloce", $_GET["oblikPloce"]);
 $izraz->execute();
 $rezultati = $izraz->fetchAll(PDO::FETCH_OBJ);
 
@@ -47,6 +48,17 @@ $rezultatiPravila = $pravila->fetchAll(PDO::FETCH_OBJ);
         });
     }
 </script>
+
+<div class="headerPages">
+    <a href="index.php"><img alt="logo" src="images/logo.png" class="headerLogo" /></a>
+    <img alt="board" src="images/plocaHeader.png" class="headerBoardPages" />
+    <div class="titlePages">Odabir pravila</div>
+</div>
+<img alt="breadCrumbs" src="images/breadcrumbsOdabirPravila.png" class="breadCrumbs" />
+<div class="pageText">Pravila na polja dodaješ tako što iz lijeve kolone klikneš na pravilo koje želiš, zadržiš klik i povučeš prema polju koji želiš. <br/>
+Možeš dodati i vlastita pravila, ne moraš birati iz ponuđenih!<br />
+Ako se i dalje ne snalaziš, pogledaj video upute:</div>
+
 <div style="width: 33.3%; padding-top: 33.3%; background-color: #808000; position: relative;" class="ploca">
     <?php foreach ($rezultati as $r): ?>
         <div style="font-size: 100%; text-align: center; color: #fff; background-color: <?php echo $r->boja_pozadine ?> ; height: <?php echo $r->visina ?>%; width: <?php echo $r->sirina ?>%; top: <?php echo $r->x_kordinata ?>%; left: <?php echo $r->y_kordinata ?>%; position:absolute; transform: rotate(<?php echo $r->kut ?>deg);"
@@ -66,4 +78,15 @@ $rezultatiPravila = $pravila->fetchAll(PDO::FETCH_OBJ);
     <?php endforeach; ?>
 </div>
 <button type="button" name="kreirajPDF" onclick="generatePdf()">Kreiraj PDF</button>
+
+    <div class="buttonsContainer">
+        <a href="brojIgraca.php" class="buttonOdustani">
+            NAZAD
+        </a>
+
+        <input class="buttonDalje buttonActive" type="submit" name="buttonDalje" value="DALJE" />
+    </div>
+    <input type="hidden" name="idNarudzbe" value="<?php echo $_GET['id'] ?>">
+
+
 <?php include 'footer.php'?>
