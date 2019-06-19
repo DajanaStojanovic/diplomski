@@ -16,10 +16,17 @@ body {
 	padding-bottom: 6%;
 }
 
+.headerPages {
+	background-image: url("../images/backgroundHeader.png");
+	width: 100%;
+	height: auto;
+	padding-bottom: 10px;
+}
+
 .headerLogo{
     width: 20%;
     margin-left: 5%;
-    margin-top: 5%;
+    margin-top: 3%;
 }
 
 .headerDices{
@@ -32,6 +39,19 @@ body {
 	position: absolute;
     width: 63%;
     right: 0;
+}
+
+.headerBoardPages {
+	position: absolute;
+    width: 63%;
+    right: 0;
+    top: -40%;
+}
+
+.titlePages {
+	margin-left: 10%;
+    font-size: 30px;
+    margin-bottom: 3%;
 }
 
 .kreirajText {
@@ -50,6 +70,91 @@ body {
     font-size: 30px;
 }
 
+/*----- pages -----*/
+.breadcrumbs {
+	margin-left: 10%;
+	margin-top: 3%;
+}
+
+.titlePageSingle {
+	font-size: 25px;
+	text-align: center;
+	margin-top: 3%;
+}
+
+.radioButton {
+	display: none;
+}
+
+.buttonsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 100px;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 3%;
+}
+
+.buttonOdustani {
+	background-color: #EE3B3B;
+	color: #fff;
+	position:absolute;
+	padding: 25px 60px 20px;
+	font-size: 20px;
+	text-decoration: none;
+}
+
+.buttonDalje {
+	background-color: #B2B2B2;
+	color: #fff;
+	position:absolute;
+	padding: 25px 60px 20px;
+	font-size: 20px;
+	right: 10%;
+	border: none;
+	font-family: rockwell;
+}
+
+.buttonActive{
+	background-color: #4EEE94;
+}
+
+/*---- brojIgraca page -----*/
+.brojIgracaContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 3%;
+  justify-items: center;
+}
+
+.price {
+	text-align: center;
+}
+
+.active {
+	border: 10px solid #4EEE94;
+	margin-top: -10px;
+	margin-bottom: -10px;
+	border-radius: 30px
+}
+
+.pdv {
+	margin-top: 30px;
+}
+
+/*----- oblikPloce page -----*/
+
+.oblikPloceContainer {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-top: 3%;
+	justify-items: center;
+}
+
 /*----- home -----*/
 .homeContainer {
   display: grid;
@@ -64,7 +169,7 @@ body {
 	grid-column: 1/2;
 	font-size: 30px;
 	align-self: center;
-	line-height: 60px
+	line-height: 60px;
 }
 
 .homeImage {
@@ -79,7 +184,7 @@ body {
   grid-row-gap: 10px;
   margin-left: 10%;
   margin-right: 10%;
-  margin-top: 100px;
+  margin-top: 150px;
 }
 
 .footerContainer a {

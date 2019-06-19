@@ -7,11 +7,11 @@ $nazivAplikacije="Ultra HC - Diplomski rad";
 //$putanjaApp="";
 
 //lokalno
-$putanjaApp="/ultra_hc_diplomski/";
+$putanjaApp="/diplomski/";
 $mysql_host="localhost";
-$mysql_database="diplomski";
+$mysql_database="ultra_hc_diplomski_rad";
 $mysql_user="root";
-$mysql_password="root";
+$mysql_password="";
 
 //spajanje na bazu
 $veza = new PDO("mysql:dbname=". $mysql_database . "; host=" .$mysql_host . "", $mysql_user, $mysql_password);

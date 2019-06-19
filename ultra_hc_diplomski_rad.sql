@@ -145,12 +145,12 @@ CREATE TABLE `oblik_ploce` (
 INSERT INTO `oblik_ploce` (`id`, `naziv`, `broj_igraca`, `slika`, `broj_polja`) VALUES
 (1, 'Četiri igrača, zvijezda', 1, '2_4_zvijezda.png', 40),
 (2, 'Četiri igrača, ploha', 1, '2_4_ploha.png', 50),
-(3, 'Šest igrača, zvijezda', 1, '2_6_zvijezda.png', 66),
-(4, 'Šest igrača, ploha', 1, '2_6_ploha.png', 74),
-(5, 'Osam igrača, zvijezda', 1, '2_8_zvijezda.png', 88),
-(6, 'Osam igrača, ploha', 1, '2_8_ploha.png', 98),
-(7, 'Deset igrača, zvijezda', 1, '2_10_zvijezda.png', 110),
-(8, 'Deset igrača, ploha', 1, '2_10_ploha.png', 122);
+(3, 'Šest igrača, zvijezda', 2, '2_6_zvijezda.png', 66),
+(4, 'Šest igrača, ploha', 2, '2_6_ploha.png', 74),
+(5, 'Osam igrača, zvijezda', 3, '2_8_zvijezda.png', 88),
+(6, 'Osam igrača, ploha', 3, '2_8_ploha.png', 98),
+(7, 'Deset igrača, zvijezda', 4, '2_10_zvijezda.png', 110),
+(8, 'Deset igrača, ploha', 4, '2_10_ploha.png', 122);
 
 -- --------------------------------------------------------
 

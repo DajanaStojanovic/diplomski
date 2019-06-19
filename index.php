@@ -1,7 +1,7 @@
 <?php include 'header.php' ?>
 
 <div class="headerHome">
-	<img alt="logo" src="images/logo.png" class="headerLogo" />
+	<a href="index.php"><img alt="logo" src="images/logo.png" class="headerLogo" /></a>
 	<img alt="dices" src="images/dices.png" class="headerDices" />
 	<img alt="board" src="images/plocaHeader.png" class="headerBoard" />
 	<div class="kreirajText"> Kreiraj svoju vlastitu table top igru</div>
