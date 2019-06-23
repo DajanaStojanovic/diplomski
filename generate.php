@@ -11,6 +11,6 @@ $tcpdf->SetMargins(10, 10, 10, 10);
 
 $tcpdf->AddPage();
 $tcpdf->writeHTML($html, true, false, false, false, '');
-$tcpdf->Output(__DIR__ . $filename, 'F');
+$tcpdf->Output(__DIR__ . $filename, 'I');
 
 $emailResult = sendMailWithPdf(__DIR__, $filename);

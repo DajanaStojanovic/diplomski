@@ -36,6 +36,8 @@ values.innerHTML = [
 ];
 document.getElementById("boardImage").style.backgroundColor = color.hexString;
 });
+
+
 </script>
 </body>
 </html>

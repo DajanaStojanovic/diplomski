@@ -11,9 +11,20 @@ $izraz -> bindParam(":oblikPloce", $_GET["oblikPloce"]);
 $izraz->execute();
 $rezultati = $izraz->fetchAll(PDO::FETCH_OBJ);
 
+$narudzba = $veza->prepare("select boja_ploce from narudzba where id=:id");
+$narudzba -> bindParam(":id", $_GET["id"]);
+$narudzba->execute();
+$rezultatiNarudzba = $narudzba->fetchAll(PDO::FETCH_OBJ);
+
 $pravila = $veza->prepare("select * from pravilo");
 $pravila->execute();
 $rezultatiPravila = $pravila->fetchAll(PDO::FETCH_OBJ);
+
+if(isset($_POST["buttonDalje"])){
+
+
+        header("location: pregledIgre.php?id=" . $_POST['idNarudzbe'] . "");
+};
 
 ?>
 
@@ -58,35 +69,57 @@ $rezultatiPravila = $pravila->fetchAll(PDO::FETCH_OBJ);
 <div class="pageText">Pravila na polja dodaješ tako što iz lijeve kolone klikneš na pravilo koje želiš, zadržiš klik i povučeš prema polju koji želiš. <br/>
 Možeš dodati i vlastita pravila, ne moraš birati iz ponuđenih!<br />
 Ako se i dalje ne snalaziš, pogledaj video upute:</div>
+    <a href="brojIgraca.php" class="buttonVideo buttonActive">
+            POGLEDAJ VIDEO UPUTE 
+        </a>
 
-<div style="width: 33.3%; padding-top: 33.3%; background-color: #808000; position: relative;" class="ploca">
-    <?php foreach ($rezultati as $r): ?>
-        <div style="font-size: 100%; text-align: center; color: #fff; background-color: <?php echo $r->boja_pozadine ?> ; height: <?php echo $r->visina ?>%; width: <?php echo $r->sirina ?>%; top: <?php echo $r->x_kordinata ?>%; left: <?php echo $r->y_kordinata ?>%; position:absolute; transform: rotate(<?php echo $r->kut ?>deg);"
-            <?php if ($r->dodavanje_pravila == true): ?>
-                id="target<?php echo $r->id ?>" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"
-            <?php endif; ?>>
-            <input type="hidden" name="poljeId" value="<?php echo $r->id ?>">
-        </div>
-    <?php endforeach; ?>
+<div class="dodajPravilaContainer">
+    <div class="pravilaContainer">
+        <p class="pravilaText">Ponuđena pravila: </p>
+        <?php foreach ($rezultatiPravila as $p): ?>
+            <p class="pravilo" id="p<?php echo $p->id ?>" draggable="true" ondragstart="dragstart_handler(event);"><?php echo $p->naziv ?>
+                <input type="hidden" value="<?php echo $p->id ?>" name="praviloId">
+            </p>
+        <?php endforeach; ?>
+    </div>
+<?php foreach ($rezultatiNarudzba as $n):?>
+    <div style="background-color: <?php echo $n->boja_ploce ?>;" class="ploca">
+<?php endforeach; ?>
+        <?php foreach ($rezultati as $r): ?>
+            <div class="kucica" style="font-size: 100%; text-align: center; color: #fff; background-color: <?php echo $r->boja_pozadine ?> ; height: <?php echo $r->visina ?>%; width: <?php echo $r->sirina ?>%; top: <?php echo $r->x_kordinata ?>%; left: <?php echo $r->y_kordinata ?>%; position:absolute; transform: rotate(<?php echo $r->kut ?>deg);"
+                <?php if ($r->dodavanje_pravila == true): ?>
+                    id="target<?php echo $r->id ?>" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"
+                <?php endif; ?>>
+                <input type="hidden" name="poljeId" value="<?php echo $r->id ?>">
+            </div>
+        <?php endforeach; ?>
+    </div>
 </div>
-<div class="pravilaContainer">
-    <?php foreach ($rezultatiPravila as $p): ?>
-        <div class="pravilo" id="p<?php echo $p->id ?>" draggable="true"
-             ondragstart="dragstart_handler(event);"><?php echo $p->naziv ?>
-            <input type="hidden" value="<?php echo $p->id ?>" name="praviloId">
-        </div>
-    <?php endforeach; ?>
-</div>
-<button type="button" name="kreirajPDF" onclick="generatePdf()">Kreiraj PDF</button>
+
+
 
     <div class="buttonsContainer">
         <a href="brojIgraca.php" class="buttonOdustani">
             NAZAD
         </a>
+    <form method="post" action="<?php echo $_SERVER["PHP_SELF"] ?>">
+        <input class="buttonDalje buttonActive" type="submit" name="buttonDalje" value="DALJE" onclick="generatePdf()"/>
 
-        <input class="buttonDalje buttonActive" type="submit" name="buttonDalje" value="DALJE" />
+        <input type="hidden" name="idNarudzbe" value="<?php echo $_GET['id'] ?>">
+        <input type="hidden" name="brojIgraca" value="<?php echo $_GET['brojIgraca'] ?>">
+    </form>
     </div>
     <input type="hidden" name="idNarudzbe" value="<?php echo $_GET['id'] ?>">
 
+<script>
 
+var cw = $('.ploca').width();
+$('.ploca').css({
+    'height': cw + 'px'
+});
+
+
+
+
+</script>
 <?php include 'footer.php'?>
