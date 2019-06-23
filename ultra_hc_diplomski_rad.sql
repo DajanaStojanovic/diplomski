@@ -16,10 +16,10 @@ CREATE TABLE `broj_igraca` (
 --
 
 INSERT INTO `broj_igraca` (`id`, `naziv`, `broj`, `slika`, `cijena`) VALUES
-(1, 'Četiri igrača', '2-4', '2_4_igraca.png', '80.00'),
-(2, 'Šest igrača', '2-6', '2_6_igraca.png', '100.00'),
-(3, 'Osam igrača', '2-8', '2_8_igraca.png', '120.00'),
-(4, 'Deset igrača', '2-10', '2_10_igraca.png', '140.00');
+(1, 'Ultra HC igra 2-4 igrača', '2-4', '2_4_igraca.png', '80.00'),
+(2, 'Ultra HC igra 2-6 igrača', '2-6', '2_6_igraca.png', '100.00'),
+(3, 'Ultra HC igra 2-8 igrača', '2-8', '2_8_igraca.png', '120.00'),
+(4, 'Ultra HC igra 2-10 igrača', '2-10', '2_10_igraca.png', '140.00');
 
 -- --------------------------------------------------------
 
@@ -58,6 +58,8 @@ CREATE TABLE `narucitelj` (
   `ime` varchar(50) NOT NULL,
   `prezime` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
+  `adresa` varchar(50) NOT NULL,
+  `kucni_broj` varchar(50) NOT NULL,
   `postanski_broj` varchar(10) NOT NULL,
   `mjesto` varchar(50) NOT NULL,
   `drzava` varchar(50) NOT NULL,
@@ -70,9 +72,9 @@ CREATE TABLE `narucitelj` (
 -- Dumping data for table `narucitelj`
 --
 
-INSERT INTO `narucitelj` (`id`, `ime`, `prezime`, `email`, `postanski_broj`, `mjesto`, `drzava`, `broj_telefona`, `napomena`, `privola`) VALUES
-(1, 'Pero', 'Perić', 'pero.peric@gmail.com', '31000', 'Osijek', 'Hrvatska', '0987654321', 'Napomena', 1),
-(2, 'Pero', 'Perić', 'pero.peric@gmail.com', '31000', 'Osijek', 'Hrvatska', '0987654321', 'Napomena', 1);
+INSERT INTO `narucitelj` (`id`, `ime`, `prezime`, `email`, `adresa`, `kucni_broj`, `postanski_broj`, `mjesto`, `drzava`, `broj_telefona`, `napomena`, `privola`) VALUES
+(1, 'Pero', 'Perić', 'pero.peric@gmail.com', 'Adresa', '1a', '31000', 'Osijek', 'Hrvatska', '0987654321', 'Napomena', 1),
+(2, 'Pero', 'Perić', 'pero.peric@gmail.com', 'Adresa', '1b', '31000', 'Osijek', 'Hrvatska', '0987654321', 'Napomena', 1);
 
 -- --------------------------------------------------------
 
@@ -87,7 +89,7 @@ CREATE TABLE `narudzba` (
   `oblik_ploce` int(11) DEFAULT NULL,
   `boja_ploce` varchar(11) DEFAULT NULL,
   `figurice` int(11) DEFAULT NULL,
-  `ploca` int(11) DEFAULT NULL,
+  `pdf` int(11) DEFAULT NULL,
   `dostava` varchar(50) DEFAULT NULL,
   `placanje` varchar(50) DEFAULT NULL,
   `datum` datetime DEFAULT NULL
@@ -97,8 +99,8 @@ CREATE TABLE `narudzba` (
 -- Dumping data for table `narudzba`
 --
 
-INSERT INTO `narudzba` (`id`, `narucitelj`, `broj_igraca`, `oblik_ploce`, `boja_ploce`, `figurice`, `ploca`, `dostava`, `placanje`, `datum`) VALUES
-(1, 2, 1, 1, "#fff", 2, 1, 'Pošta', 'Pouzeće', NULL);
+INSERT INTO `narudzba` (`id`, `narucitelj`, `broj_igraca`, `oblik_ploce`, `boja_ploce`, `figurice`, `pdf`, `dostava`, `placanje`, `datum`) VALUES
+(1, 2, 1, 1, "#fff", 2, 1, 'pdf.pdf', 'Pouzeće', NULL);
 
 -- --------------------------------------------------------
 

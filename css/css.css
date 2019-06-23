@@ -102,6 +102,7 @@ body {
 	padding: 25px 60px 20px;
 	font-size: 20px;
 	text-decoration: none;
+	font-family: rockwell
 }
 
 .buttonDalje {
@@ -348,6 +349,173 @@ body {
 .checkboxUvjeti {
 	width: auto !important;
 }
+
+input:focus,
+textarea:focus {
+    outline:none;
+}
+
+.checkboxUvjeti {
+  position: absolute;
+  opacity: 0;
+}
+
+.checkboxUvjeti + label {
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+  }
+
+.checkboxUvjeti + label:before {
+    content: '';
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: text-top;
+    width: 17px;
+    height: 17px;
+    background: #B2B2B2;
+    border: 2px solid #B2B2B2;
+    border-radius: 5px;
+    margin-top: -5px;
+  }
+
+.checkboxUvjeti:hover + label:before {
+    background: #B2B2B2;
+  }
+  
+
+.checkboxUvjeti:checked + label:before {
+    background: #fff;
+  }
+
+
+.checkboxUvjeti:checked + label:after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 4px;
+    background: white;
+    width: 2px;
+    height: 2px;
+    box-shadow: 
+      2px 0 0 #B2B2B2,
+      4px 0 0 #B2B2B2,
+      4px -2px 0 #B2B2B2,
+      4px -4px 0 #B2B2B2,
+      4px -6px 0 #B2B2B2,
+      4px -8px 0 #B2B2B2;
+    transform: rotate(45deg);
+  }
+
+.dpdImage {
+	width: 80px;
+	margin-top: 15px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.tisakImage {
+	width: 45px;
+    margin-top: 15px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.overseasImage {
+	width: 100px;
+	margin-top: 15px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.glsImage {
+	width: 100px;
+	margin-top: 15px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.nacinPlacanjaText {
+	margin-top: 50px;
+	margin-bottom: 20px;
+}
+
+.pregledPlacanja {
+	margin-top: 50px;
+}
+
+.nazivIgre {
+	border-bottom: 2px solid #000;
+	width: 50%;
+}
+
+.dostavaIgre {
+	border-bottom: 3px solid #000;
+	width: 50%;
+	margin-top: 10px;
+}
+
+.ukupnoIgre {
+	width: 50%;
+	margin-top: 10px;
+}
+
+.nazivIgre span ,
+.dostavaIgre span,
+.ukupnoIgre span {
+	position: absolute;
+    right: 30%;
+}
+
+.errorMessage {
+	color: #EE3B3B;
+	position: absolute;
+    font-size: 14px;
+    margin-top: 1px;
+    margin-left: 5px;
+}
+
+/*----- zahvala -----*/
+.zahvalaContainer {
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-top: 3%;
+}
+
+.hvalaTextFirst {
+	font-size: 20px;
+	margin-bottom: 50px;
+}
+
+.hvalaTextSecond {
+	font-size: 20px;
+	margin-bottom: 100px;
+}
+
+.hvalaTextSecond a{
+	text-decoration: none;
+	color: #EE3B3B;
+}
+
+.buttonKreirajHvala {
+	text-decoration: none;
+    color: #fff;
+    background-color: #4EEE94;
+    margin-left: 10%;
+    padding: 25px 60px 20px;
+    font-size: 20px;
+}
+
+.buttonNaslovnica {
+	background-color: #EE3B3B;
+    color: #fff;
+    padding: 25px 60px 20px;
+    font-size: 20px;
+    text-decoration: none;
+	position: absolute;
+	left: 43%;
+}
+
 /*----- home -----*/
 .homeContainer {
   display: grid;

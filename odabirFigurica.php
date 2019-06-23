@@ -20,6 +20,15 @@ if(isset($_POST["buttonDalje"])){
 
          header("location: odabirPravila.php?id=" . $_POST['idNarudzbe'] . "&oblikPloce=" . $_POST['oblikPloce'] ."");
 };
+
+if(isset($_POST["buttonOdustani"])) {
+	$updateNaraudzba=$veza->prepare("delete from narudzba
+		where id=:id");
+        $updateNaraudzba->bindParam(":id", $_POST['idNarudzbe']);
+        $updateNaraudzba->execute();
+
+        header("location: index.php");
+};
 ?>
 <div class="headerPages">
 	<a href="index.php"><img alt="logo" src="images/logo.png" class="headerLogo" /></a>
@@ -41,9 +50,7 @@ if(isset($_POST["buttonDalje"])){
 	</div>
 	       
     <div class="buttonsContainer">
-		<a href="brojIgraca.php" class="buttonOdustani">
-			NAZAD
-		</a>
+		<input class="buttonOdustani" type="submit" name="buttonOdustani" value="ODUSTANI" />
 
 		<input class="buttonDalje" type="submit" name="buttonDalje" value="DALJE" disabled />
 	</div>

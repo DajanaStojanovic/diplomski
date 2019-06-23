@@ -26,6 +26,15 @@ if(isset($_POST["buttonDalje"])){
         header("location: pregledIgre.php?id=" . $_POST['idNarudzbe'] . "");
 };
 
+if(isset($_POST["buttonOdustani"])) {
+    $updateNaraudzba=$veza->prepare("delete from narudzba
+        where id=:id");
+        $updateNaraudzba->bindParam(":id", $_POST['idNarudzbe']);
+        $updateNaraudzba->execute();
+
+        header("location: index.php");
+};
+
 ?>
 
 <script>
@@ -99,10 +108,9 @@ Ako se i dalje ne snalaziš, pogledaj video upute:</div>
 
 
     <div class="buttonsContainer">
-        <a href="brojIgraca.php" class="buttonOdustani">
-            NAZAD
-        </a>
+        
     <form method="post" action="<?php echo $_SERVER["PHP_SELF"] ?>">
+        <input class="buttonOdustani" type="submit" name="buttonOdustani" value="ODUSTANI" />
         <input class="buttonDalje buttonActive" type="submit" name="buttonDalje" value="DALJE" onclick="generatePdf()"/>
 
         <input type="hidden" name="idNarudzbe" value="<?php echo $_GET['id'] ?>">

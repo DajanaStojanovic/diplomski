@@ -16,6 +16,14 @@ if(isset($_POST["buttonDalje"])){
         header("location: podaciZaDostavu.php?id=" . $_POST['idNarudzbe'] . "");
 };
 
+if(isset($_POST["buttonOdustani"])) {
+	$updateNaraudzba=$veza->prepare("delete from narudzba
+		where id=:id");
+        $updateNaraudzba->bindParam(":id", $_POST['idNarudzbe']);
+        $updateNaraudzba->execute();
+
+        header("location: index.php");
+};
 
 ?>
 
@@ -37,9 +45,7 @@ if(isset($_POST["buttonDalje"])){
 
 
     <div class="buttonsContainer">
-		<a href="brojIgraca.php" class="buttonOdustani">
-			NAZAD
-		</a>
+		<input class="buttonOdustani" type="submit" name="buttonOdustani" value="ODUSTANI" />
 
 		<input class="buttonDalje buttonActive" type="submit" name="buttonDalje" value="DALJE" />
 	</div>
