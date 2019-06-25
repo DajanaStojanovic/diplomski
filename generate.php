@@ -1,16 +1,25 @@
 <?php
 
-include 'pdf/tcpdf.php';
+require_once 'dompdf/autoload.inc.php';
 include 'mailer/mailer.php';
 
+use Dompdf\Dompdf;
+
+$_POST = json_decode(file_get_contents('php://input'), true);
 $html = $_POST['html'];
-$filename = rand(0, 10000) . '.pdf';
 
-$tcpdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
-$tcpdf->SetMargins(10, 10, 10, 10);
+$filename = 'narudzbaId' . $_POST['idNarudzbe'] . '.pdf';
 
-$tcpdf->AddPage();
-$tcpdf->writeHTML($html, true, false, false, false, '');
-$tcpdf->Output(__DIR__ . $filename, 'I');
+$dompdf = new Dompdf();
+$dompdf->set_option('defaultFont', 'Courier');
+$dompdf->load_html($html, 'UTF-8');
+$dompdf->set_paper(array(0, 0, 2551, 2551), 'portrait');
+$dompdf->set_base_path(__DIR__.'css/dompdf.css');
+$dompdf->render();
+$output = $dompdf->output();
+file_put_contents(__DIR__ .'/pdfUploads/'.$filename, $output);
+
 
 $emailResult = sendMailWithPdf(__DIR__, $filename);
+
+?>

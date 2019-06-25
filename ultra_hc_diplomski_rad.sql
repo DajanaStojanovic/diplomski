@@ -89,7 +89,7 @@ CREATE TABLE `narudzba` (
   `oblik_ploce` int(11) DEFAULT NULL,
   `boja_ploce` varchar(11) DEFAULT NULL,
   `figurice` int(11) DEFAULT NULL,
-  `pdf` int(11) DEFAULT NULL,
+  `pdf` varchar(500) DEFAULT NULL,
   `dostava` varchar(50) DEFAULT NULL,
   `placanje` varchar(50) DEFAULT NULL,
   `datum` datetime DEFAULT NULL
@@ -181,9 +181,9 @@ INSERT INTO `polja_ploca` (`id`, `naziv`, `broj_polja`, `oblik_ploce`, `x_kordin
 (6, '1_6', 6, 1, '36.4', '29.2', '90', 7, 7, '#fff', 1),
 (7, '1_7', 7, 1, '36.4', '20.7', '90', 7, 7, '#fff', 1),
 (8, '1_8', 8, 1, '36.4', '12.2', '90', 7, 7, '#fff', 1),
-(9, '1_9', 9, 1, '36.4', '3.7', '90', 7, 7, '#EE3B3B', 1),
+(9, '1_9', 9, 1, '36.4', '3.7', '90', 7, 7, '#EE3B3B', 0),
 (10, '1_10', 10, 1, '44.9', '3.7', '90', 7, 7, '#fff', 1),
-(11, '1_11', 11, 1, '53.4', '3.7', '90', 7, 7, '#fff', 0),
+(11, '1_11', 11, 1, '53.4', '3.7', '90', 7, 7, '#fff', 1),
 (12, '1_12', 12, 1, '53.4', '12.2', '90', 7, 7, '#fff', 1),
 (13, '1_13', 13, 1, '53.4', '20.7', '90', 7, 7, '#fff', 1),
 (14, '1_14', 14, 1, '53.4', '29.2', '90', 7, 7, '#fff', 1),
@@ -191,9 +191,9 @@ INSERT INTO `polja_ploca` (`id`, `naziv`, `broj_polja`, `oblik_ploce`, `x_kordin
 (16, '1_16', 16, 1, '61.9', '37.7', '180', 7, 7, '#fff', 1),
 (17, '1_17', 17, 1, '70.4', '37.7', '180', 7, 7, '#fff', 1),
 (18, '1_18', 18, 1, '78.9', '37.7', '180', 7, 7, '#fff', 1),
-(19, '1_19', 19, 1, '87.4', '37.7', '180', 7, 7, '#3E5BF7', 1),
+(19, '1_19', 19, 1, '87.4', '37.7', '180', 7, 7, '#3E5BF7', 0),
 (20, '1_20', 20, 1, '87.4', '54.7', '180', 7, 7, '#fff', 1),
-(21, '1_21', 21, 1, '87.4', '46.2', '180', 7, 7, '#fff', 0),
+(21, '1_21', 21, 1, '87.4', '46.2', '180', 7, 7, '#fff', 1),
 (22, '1_22', 22, 1, '78.9', '54.7', '180', 7, 7, '#fff', 1),
 (23, '1_23', 23, 1, '70.4', '54.7', '180', 7, 7, '#fff', 1),
 (24, '1_24', 24, 1, '61.9', '54.7', '180', 7, 7, '#fff', 1),
@@ -201,9 +201,9 @@ INSERT INTO `polja_ploca` (`id`, `naziv`, `broj_polja`, `oblik_ploce`, `x_kordin
 (26, '1_26', 26, 1, '53.4', '63.2', '270', 7, 7, '#fff', 1),
 (27, '1_27', 27, 1, '53.4', '71.7', '270', 7, 7, '#fff', 1),
 (28, '1_28', 28, 1, '53.4', '80.2', '270', 7, 7, '#fff', 1),
-(29, '1_29', 29, 1, '53.4', '88.7', '270', 7, 7, '#EEDC3B', 1),
+(29, '1_29', 29, 1, '53.4', '88.7', '270', 7, 7, '#EEDC3B', 0),
 (30, '1_30', 30, 1, '44.9', '88.7', '270', 7, 7, '#fff', 1),
-(31, '1_31', 31, 1, '36.4', '88.7', '270', 7, 7, '#fff', 0),
+(31, '1_31', 31, 1, '36.4', '88.7', '270', 7, 7, '#fff', 1),
 (32, '1_32', 32, 1, '36.4', '80.2', '270', 7, 7, '#fff', 1),
 (33, '1_33', 33, 1, '36.4', '71.7', '270', 7, 7, '#fff', 1),
 (34, '1_34', 34, 1, '36.4', '63.2', '270', 7, 7, '#fff', 1),
@@ -211,7 +211,7 @@ INSERT INTO `polja_ploca` (`id`, `naziv`, `broj_polja`, `oblik_ploce`, `x_kordin
 (36, '1_36', 36, 1, '27.9', '54.7', '0', 7, 7, '#fff', 1),
 (37, '1_37', 37, 1, '19.4', '54.7', '0', 7, 7, '#fff', 1),
 (38, '1_38', 38, 1, '10.9', '54.7', '0', 7, 7, '#fff', 1),
-(39, '1_39', 39, 1, '2.4', '54.7', '0', 7, 7, '#4EEE94', 1),
+(39, '1_39', 39, 1, '2.4', '54.7', '0', 7, 7, '#4EEE94', 0),
 (40, '1_40', 40, 1, '2.4', '46.2', '0', 7, 7, '#fff', 1),
 (41, '1_41', 41, 1, '11.4', '6.8', '0', 7, 7, '#4EEE94', 0),
 (42, '1_42', 42, 1, '19.9', '6.8', '0', 7, 7, '#4EEE94', 0),
@@ -457,30 +457,7 @@ INSERT INTO `polja_ploca` (`id`, `naziv`, `broj_polja`, `oblik_ploce`, `x_kordin
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `polje_pravilo_narucitelj`
---
 
-CREATE TABLE `polje_pravilo_narucitelj` (
-  `id` int(11) NOT NULL,
-  `pravilo` int(11) DEFAULT NULL,
-  `polje` int(11) DEFAULT NULL,
-  `narucitelj` int(11) DEFAULT NULL,
-  `oblik_ploce` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `polje_pravilo_narucitelj`
---
-
-INSERT INTO `polje_pravilo_narucitelj` (`id`, `pravilo`, `polje`, `narucitelj`, `oblik_ploce`) VALUES
-(1, 2, 20, 1, 1),
-(2, 1, 2, 1, 1),
-(3, 4, 72, 1, 1),
-(4, 2, 72, 1, 1),
-(5, 3, 72, 1, 1),
-(6, 4, 72, 1, 1),
-(7, 3, 72, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -503,37 +480,37 @@ INSERT INTO `pravilo` (`id`, `naziv`, `opis`, `tag`) VALUES
 (1, 'Izbaci 2 igrača po izboru', 'Odaberi koja dva igrača želiš izbaciti. Također možeš izbaciti dvije figurice jednog igrača', 'default'),
 (2, 'Svi igrači 2 koraka naprijed', 'Svaki igrač se mora pomaknuti 2 koraka naprijed', 'default'),
 (3, 'Bacaj ponovno 2x', '2 puta baci ponovno', 'default'),
-(4, 'Popij pivo', '2 puta baci ponovno', 'custom'),
-(5, 'Bacaj ponovno', 'Baci ponovno', 'custom'),
-(6, 'Idi 3 koraka nazad', 'Idi 3 koraka nazad', 'custom'),
-(7, 'Idi u kućicu', 'Idi u kućicu', 'custom'),
-(8, '3 figure u polju, 1 izbaci', '3 figure u polju, 1 izbaci', 'custom'),
-(9, '1 figura u polju, 1 na polje', '1 figura u polju, 1 na polje', 'custom'),
-(10, '3 figure u polju, 1 izbaci', '3 figure u polju, 1 izbaci', 'custom'),
-(11, '4 figure u polju, 2 u kućicu', '4 figure u polju, 2 u kućicu ', 'custom'),
-(12, '3 figure u polju, 1 u kućicu', '3 figure u polju, 1 u kućicu', 'custom'),
-(13, 'Propusti 1 krug', 'Propusti 1 krug', 'custom'),
-(14, '2 figure u polju, 1 u polje', '2 figure u polju, 1 u polje', 'custom'),
-(15, '4 figure u polju, 2 izbaci', '4 figure u polju, 2 izbaci', 'custom'),
-(16, 'Izbaci igrača po izboru', 'Izbaci igrača po izboru', 'custom'),
-(17, 'Izbaci 2 igrača po izboru', 'Izbaci 2 igrača po izboru', 'custom'),
-(18, 'Svi igrači 4 koraka naprijed', 'Svi igrači 4 koraka naprijed', 'custom'),
-(19, 'Izbaci igrača ispred sebe', 'Izbaci igrača ispred sebe', 'custom'),
-(20, 'Svi igrači 3 koraka naprijed', 'Svi igrači 3 koraka naprijed', 'custom'),
-(21, 'Propusti 4 kruga', 'Propusti 4 kruga', 'custom'),
-(22, 'Idi 3 koraka naprijed', 'Idi 3 koraka naprijed', 'custom'),
-(23, 'Propusti 3 kruga', 'Propusti 3 kruga', 'custom'),
-(24, 'Svi igrači 2 koraka naprijed', 'Svi igrači 2 koraka naprijed', 'custom'),
-(25, 'Svi igrači 4 koraka nazad', 'Svi igrači 4 koraka nazad', 'custom'),
-(26, 'Svi igrači 3 koraka nazad', 'Svi igrači 3 koraka nazad', 'custom'),
-(27, 'Svi igrači 1 korak nazad', 'Svi igrači 1 korak nazad', 'custom'),
-(28, 'Svi igrači 2 koraka nazad', 'Svi igrači 2 koraka nazad', 'custom'),
-(29, 'Izbaci svog igrača', 'Izbaci svog igrača', 'custom'),
-(30, 'Svi igrači 1 korak naprijed', 'Svi igrači 1 korak naprijed', 'custom'),
-(31, 'Bingo! 20 koraka naprijed!', 'Bingo! 20 koraka naprijed!', 'custom'),
-(32, 'Izvedi sve figure u polje', 'Izvedi sve figure u polje', 'custom'),
-(33, 'Sve figure u polju u kućicu', 'Sve figure u polju u kućicu', 'custom'),
-(34, '1 figurica iz kućice', '1 figurica iz kućice', 'custom');
+(4, 'Popij pivo', '2 puta baci ponovno', 'default'),
+(5, 'Bacaj ponovno', 'Baci ponovno', 'default'),
+(6, 'Idi 3 koraka nazad', 'Idi 3 koraka nazad', 'default'),
+(7, 'Idi u kućicu', 'Idi u kućicu', 'default'),
+(8, '3 figure u polju, 1 izbaci', '3 figure u polju, 1 izbaci', 'default'),
+(9, '1 figura u polju, 1 na polje', '1 figura u polju, 1 na polje', 'default'),
+(10, '3 figure u polju, 1 izbaci', '3 figure u polju, 1 izbaci', 'default'),
+(11, '4 figure u polju, 2 u kućicu', '4 figure u polju, 2 u kućicu ', 'default'),
+(12, '3 figure u polju, 1 u kućicu', '3 figure u polju, 1 u kućicu', 'default'),
+(13, 'Propusti 1 krug', 'Propusti 1 krug', 'default'),
+(14, '2 figure u polju, 1 u polje', '2 figure u polju, 1 u polje', 'default'),
+(15, '4 figure u polju, 2 izbaci', '4 figure u polju, 2 izbaci', 'default'),
+(16, 'Izbaci igrača po izboru', 'Izbaci igrača po izboru', 'default'),
+(17, 'Izbaci 2 igrača po izboru', 'Izbaci 2 igrača po izboru', 'default'),
+(18, 'Svi igrači 4 koraka naprijed', 'Svi igrači 4 koraka naprijed', 'default'),
+(19, 'Izbaci igrača ispred sebe', 'Izbaci igrača ispred sebe', 'default'),
+(20, 'Svi igrači 3 koraka naprijed', 'Svi igrači 3 koraka naprijed', 'default'),
+(21, 'Propusti 4 kruga', 'Propusti 4 kruga', 'default'),
+(22, 'Idi 3 koraka naprijed', 'Idi 3 koraka naprijed', 'default'),
+(23, 'Propusti 3 kruga', 'Propusti 3 kruga', 'default'),
+(24, 'Svi igrači 2 koraka naprijed', 'Svi igrači 2 koraka naprijed', 'default'),
+(25, 'Svi igrači 4 koraka nazad', 'Svi igrači 4 koraka nazad', 'default'),
+(26, 'Svi igrači 3 koraka nazad', 'Svi igrači 3 koraka nazad', 'default'),
+(27, 'Svi igrači 1 korak nazad', 'Svi igrači 1 korak nazad', 'default'),
+(28, 'Svi igrači 2 koraka nazad', 'Svi igrači 2 koraka nazad', 'default'),
+(29, 'Izbaci svog igrača', 'Izbaci svog igrača', 'default'),
+(30, 'Svi igrači 1 korak naprijed', 'Svi igrači 1 korak naprijed', 'default'),
+(31, 'Bingo! 20 koraka naprijed!', 'Bingo! 20 koraka naprijed!', 'default'),
+(32, 'Izvedi sve figure u polje', 'Izvedi sve figure u polje', 'default'),
+(33, 'Sve figure u polju u kućicu', 'Sve figure u polju u kućicu', 'default'),
+(34, '1 figurica iz kućice', '1 figurica iz kućice', 'default');
 
 --
 -- Indexes for dumped tables
@@ -566,8 +543,7 @@ ALTER TABLE `narudzba`
   ADD KEY `narucitelj` (`narucitelj`),
   ADD KEY `broj_igraca` (`broj_igraca`),
   ADD KEY `oblik_ploce` (`oblik_ploce`),
-  ADD KEY `figurice` (`figurice`),
-  ADD KEY `ploca` (`ploca`);
+  ADD KEY `figurice` (`figurice`);
 
 --
 -- Indexes for table `oblik_ploce`
@@ -588,15 +564,7 @@ ALTER TABLE `ploca`
 ALTER TABLE `polja_ploca`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `polje_pravilo_narucitelj`
---
-ALTER TABLE `polje_pravilo_narucitelj`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `polje` (`polje`),
-  ADD KEY `pravilo` (`pravilo`),
-  ADD KEY `narucitelj` (`narucitelj`),
-  ADD KEY `oblik_ploce` (`oblik_ploce`);
+
 
 --
 -- Indexes for table `pravilo`
@@ -652,11 +620,6 @@ ALTER TABLE `ploca`
 ALTER TABLE `polja_ploca`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
---
--- AUTO_INCREMENT for table `polje_pravilo_narucitelj`
---
-ALTER TABLE `polje_pravilo_narucitelj`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `pravilo`
@@ -675,8 +638,7 @@ ALTER TABLE `narudzba`
   ADD CONSTRAINT `narudzba_ibfk_1` FOREIGN KEY (`narucitelj`) REFERENCES `narucitelj` (`id`),
   ADD CONSTRAINT `narudzba_ibfk_2` FOREIGN KEY (`broj_igraca`) REFERENCES `broj_igraca` (`id`),
   ADD CONSTRAINT `narudzba_ibfk_3` FOREIGN KEY (`oblik_ploce`) REFERENCES `oblik_ploce` (`id`),
-  ADD CONSTRAINT `narudzba_ibfk_5` FOREIGN KEY (`figurice`) REFERENCES `figurice` (`id`),
-  ADD CONSTRAINT `narudzba_ibfk_6` FOREIGN KEY (`ploca`) REFERENCES `ploca` (`id`);
+  ADD CONSTRAINT `narudzba_ibfk_5` FOREIGN KEY (`figurice`) REFERENCES `figurice` (`id`);
 
 --
 -- Constraints for table `oblik_ploce`
@@ -684,17 +646,4 @@ ALTER TABLE `narudzba`
 ALTER TABLE `oblik_ploce`
   ADD CONSTRAINT `oblik_ploce_ibfk_1` FOREIGN KEY (`broj_igraca`) REFERENCES `broj_igraca` (`id`);
 
---
--- Constraints for table `polje_pravilo_narucitelj`
---
-ALTER TABLE `polje_pravilo_narucitelj`
-  ADD CONSTRAINT `polje_pravilo_narucitelj_ibfk_1` FOREIGN KEY (`polje`) REFERENCES `polja_ploca` (`id`),
-  ADD CONSTRAINT `polje_pravilo_narucitelj_ibfk_2` FOREIGN KEY (`pravilo`) REFERENCES `pravilo` (`id`),
-  ADD CONSTRAINT `polje_pravilo_narucitelj_ibfk_3` FOREIGN KEY (`narucitelj`) REFERENCES `narucitelj` (`id`),
-  ADD CONSTRAINT `polje_pravilo_narucitelj_ibfk_4` FOREIGN KEY (`narucitelj`) REFERENCES `narucitelj` (`id`),
-  ADD CONSTRAINT `polje_pravilo_narucitelj_ibfk_5` FOREIGN KEY (`oblik_ploce`) REFERENCES `oblik_ploce` (`id`);
-COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

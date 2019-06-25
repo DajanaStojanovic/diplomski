@@ -59,6 +59,7 @@ body {
     font-size: 30px;
     margin-top: 12%;
     margin-bottom: 3%;
+    position: relative;
 }
 
 .buttonKreiraj {
@@ -207,8 +208,14 @@ body {
 .ploca {
 	right: 10%;
 	margin-top: 8%;
-	position: absolute;
+	position: relative;
 	width: 40%;
+	margin-left: auto;
+
+}
+
+.hiddenPloca {
+	display: none;
 }
 
 .dodajPravilaContainer {
@@ -221,7 +228,68 @@ body {
 	background-color: transparent;
 	color: #000;
 	padding: 0;
+	font-size: 0.5vW;
+	margin: 0;
 }
+
+.dodajPraviloContainer {
+	display: grid;
+    grid-template-columns: 9fr 2fr;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 3%;
+    width: 31%;
+}
+
+.dodajPraviloContainer .pravilo {
+	justify-self: left;
+}
+
+.customPravilo {
+	width: 85%;
+	text-align: center;
+	background-color: #B2B2B2;
+	border: 5px solid #B2B2B2;
+	border-radius: 10px;
+	color: #fff;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.buttonDodaj{
+	background-color: #B2B2B2;
+	color: #fff;
+	position:relative;
+	padding: 16px 24px 8px;
+	right: 10%;
+	border: none;
+	font-family: rockwell;
+	border-radius: 10px;
+	align-self: center;
+}
+
+.buttonActiveDodaj{
+	background-color: #4EEE94;
+}
+/*-----Pregled igre-----*/
+.pregledPloceContainer {
+    display: grid;
+    grid-template-columns: 8fr 3fr;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 3%;
+    justify-items: center;
+}
+
+.pdfPregled {
+	height:100%;
+	width:100%;
+	pointer-events: none;
+}
+html body #zoom-toolbar {
+	display: none;
+}
+/*-----Podaci za placanje -----*/
 
 .osnovniPodaciText {
 	grid-area: osnovniPodaciText;
@@ -320,7 +388,8 @@ body {
 }
 
 .osnovniPodaci input::placeholder,
-.osnovniPodaci textarea::placeholder {
+.osnovniPodaci textarea::placeholder,
+.customPravilo::placeholder {
 	color: #fff;
 	font-family: rockwell;
 }
@@ -328,7 +397,9 @@ body {
 .osnovniPodaci input:focus,
 .osnovniPodaci input:not(:placeholder-shown),
 .osnovniPodaci textarea:focus,
-.osnovniPodaci textarea:not(:placeholder-shown) {
+.osnovniPodaci textarea:not(:placeholder-shown),
+.customPravilo:focus,
+.customPravilo:not(:placeholder-shown) {
 	color: #000;
 	font-family: rockwell;
 	background-color: #fff;
@@ -470,7 +541,7 @@ textarea:focus {
 .errorMessage {
 	color: #EE3B3B;
 	position: absolute;
-    font-size: 14px;
+    font-size: 11px;
     margin-top: 1px;
     margin-left: 5px;
 }
@@ -492,7 +563,7 @@ textarea:focus {
 	margin-bottom: 100px;
 }
 
-.hvalaTextSecond a{
+.mailKontakt {
 	text-decoration: none;
 	color: #EE3B3B;
 }
@@ -516,6 +587,29 @@ textarea:focus {
 	left: 43%;
 }
 
+/*-----staticne stranice -----*/
+.staticneContainer {
+  display: grid;
+  grid-template-columns: 3fr 9fr;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 3%;
+}
+
+.staticMenu {
+	background-color: #E0E0E0;
+    position: absolute;
+    padding: 20px;
+}
+
+.staticMenu a {
+	color: #000;
+	text-decoration: none;
+}
+
+.staticText {
+	z-index: 1;
+}
 /*----- home -----*/
 .homeContainer {
   display: grid;
@@ -524,6 +618,11 @@ textarea:focus {
   margin-left: 10%;
   margin-right: 10%;
   margin-top: 3%;
+}
+
+.homeContainer img {
+	width: 100%;
+	height: auto;
 }
 
 .homeText {
@@ -567,3 +666,49 @@ textarea:focus {
 	text-align: center;
 	font-size: 16px;
 }
+
+
+/*----responsive-----*/
+@media screen and (max-width: 1600px) {
+	.headerBoardPages {
+		width: 50%;
+		top: -18%;
+	}
+
+	.titlePages {
+		font-size: 27px;
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.headerBoardPages {
+		top: -10%;
+	}
+
+	.titlePages {
+		font-size: 25px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.headerBoardPages {
+		top: -7%;
+	}
+
+	.titlePages {
+		font-size: 20px;
+	}
+}
+
+@media screen and (max-width: 550px) {
+	.headerBoardPages {
+		top: -7%;
+	}
+
+	.titlePages {
+		font-size: 20px;
+	}
+}
+
+
+

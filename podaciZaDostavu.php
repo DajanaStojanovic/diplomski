@@ -39,6 +39,7 @@ if(isset($_POST["buttonDalje"])){
 		        $updateNaraudzba->bindParam(":id", $_POST['idNarudzbe']);
 		        $updateNaraudzba->bindParam(":dostava", $_POST['nacinDostave']);
 		        $updateNaraudzba->bindParam(":placanje", $_POST['placanje']);
+		        $date=date("Y-m-d");
 		        $updateNaraudzba->bindParam(":datum", $date);
 		        $updateNaraudzba->execute();
 

@@ -34,7 +34,12 @@ if(isset($_POST["buttonOdustani"])) {
 </div>
 <div class="pageText">Ovako izgleda igra koju si napravio/la, te figurica koju si odabrao/la.</div>
 <form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="post">
-	<div class="oblikPloceContainer">
+	<div class="pregledPloceContainer">
+		<object class="pdfPregled" data="pdfUploads/narudzbaId<?php echo $_GET['id']?>.pdf#toolbar=0" type="application/pdf">
+	        <embed height="100%" width="100%" src="pdfUploads/narudzbaId<?php echo $_GET['id']?>.pdf#toolbar=0" type="application/pdf" />
+		</object>
+
+
 		<?php foreach ($rezultati as $r): ?>
 	        <div class="pregledContainer">
 	        	<img alt="igrači" src="images/<?php echo $r->slika ?>"/>
@@ -52,5 +57,13 @@ if(isset($_POST["buttonOdustani"])) {
 	<input type="hidden" name="idNarudzbe" value="<?php echo $_GET['id'] ?>">
 </form>
 
+<script>
+	var cw = $('.pdfPregled').width();
+$('.pdfPregled').css({
+    'width': cw + 'px',
+    'height': cw + 'px',
+});
+
+</script>
 
 <?php include 'footer.php' ?>
